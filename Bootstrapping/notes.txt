@@ -1,0 +1,82 @@
+to learn about confidence intervals, you need to learn bootstrapping first
+
+there are lots of ways to calculate confidence intervals, bootstrapping is just one of them - but its the easiest to understand
+
+
+======
+
+bootstrapping 
+
+we take 12 mice and weight them. we did not weight all the mice on earth, only 12
+
+we calculate the sample mean - its not the mean of all the mice on the planet, its just the mean of the mice we sampled
+
+however we can use bootstrapping and the data we have here to determine, what values will be reasonable, for all the mice on the planet
+
+===
+
+now we bootstrap the sample
+
+to bootstrap this sample of 12 weights:
+1) randomly select 12 weights from the original sample (duplicates are ok) - this is called sampling with replacement
+2) now we calculate the mean of the random sample
+3) repeat 1 and 2 until we have calculated a lot of means (>10000) - plot them
+
+===
+
+95% confidence interval
+
+A 95% confidence interval is just an interval that covers 95% of the means
+A 99% confidence interval is just an interval that covers 99% of the means
+
+===
+
+Why are they useful?
+
+confidence intervals are statistical tests performed visually
+
+because the interval covers 95% of the means, we know that anything outside of it occurs less than 95% of the time 
+ 
+that is to say the p-value of anything outside the confidence interval is < 005 and then statistically significant
+
+======
+
+example of a visual statistical test
+
+this is the sample mean, its an estimate of the true mean for all mice
+
+what is the p value that the true mean of all mice, not just our sample is < 20?
+
+the 95% confidence interval (calculated using bootstrapping or some formula) tells us which values the true means are likely and which values are unlikely
+
+we can see that the values less than 20 are outside our confidence interval
+
+because the highlighted region is outside the 95% confidence interval, which contains 95% of the means, we know that the probability that the true mean is in this area has to be < 0.05 
+
+thus
+
+the p-value is less than 0.05 - this is unlikely and we say there is a statistically significant difference between true mean and any value less than 20
+
+======
+
+Another example of a visual statistical test
+
+we have a sample of female mice
+
+and a sample of male mice
+
+we have done the bootstrapping on the sample
+
+because the 95% confidence intervals do not overlap, we know that there is a statistically significant difference in the weights of female and male mice.
+
+
+you know the p-value is less than 0.05 just by looking at this picture!
+
+=====
+
+there is one caveat to that and to illustrate that caveat - the confidence intervals overlap
+
+if the confidence intervals overlap, there is still a chance that the means are statistically significant from each other, so, in this case, you still have to do your t-test
+
+but when they do not overlap, we can rest assured that there is a statistically significant difference between those 2 means
+
